@@ -1,0 +1,150 @@
+.ToggleButton {
+  .button-switch {
+    position: relative;
+    display: inline-block;
+
+    input[type='checkbox'] {
+      &:checked + .switch {
+        background-color: green;
+      }
+    }
+
+    &.large {
+      width: 50px;
+      height: 25px;
+
+      input[type='checkbox'] {
+        &:checked + .switch {
+          &::before {
+            transform: translateX(25px);
+          }
+        }
+      }
+    }
+
+    &.small {
+      width: 30px;
+      height: 15px;
+
+      input[type='checkbox'] {
+        &:checked + .switch {
+          &::before {
+            transform: translateX(15px);
+          }
+        }
+      }
+    }
+
+    .switch {
+      position: absolute;
+      cursor: pointer;
+      background-color: grey;
+      border-radius: 25px;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transition: background-color 0.2s ease;
+
+      &::before {
+        position: absolute;
+        content: '';
+        background-color: white;
+        border-radius: 50%;
+        transition: transform 0.3s ease;
+      }
+
+      &.large {
+        &::before {
+          left: 2px;
+          top: 2px;
+          width: 21px;
+          height: 21px;
+        }
+      }
+
+      &.small {
+        &::before {
+          left: 0px;
+          top: 0px;
+          width: 15px;
+          height: 15px;
+        }
+      }
+    }
+  }
+
+  .HalfToggle {
+    .button-switch {
+      &.large {
+        input[type='checkbox'] {
+          &:checked + .switch {
+            &::before {
+              transform: translateX(13px);
+            }
+          }
+        }
+      }
+
+      &.small {
+        input[type='checkbox'] {
+          &:checked + .switch {
+            &::before {
+              transform: translateX(7px);
+            }
+          }
+        }
+      }
+    }
+
+    .switch {
+      background-color: lawngreen;
+
+      &.large {
+        &::before {
+          left: 14px;
+        }
+      }
+
+      &.small {
+        &::before {
+          left: 8px;
+        }
+      }
+    }
+  }
+
+  .SmallToggle {
+    .switch {
+      background-color: red;
+    }
+  }
+
+  .FixToggle {
+    .button-switch {
+      input[type='checkbox'] {
+        &:checked + .switch {
+          &::before {
+            transform: none;
+          }
+        }
+      }
+    }
+
+    .switch {
+      background-color: green;
+
+      &.large {
+        &::before {
+          left: 26px;
+        }
+      }
+
+      &.small {
+        &::before {
+          left: 15px;
+        }
+      }
+    }
+  }
+}
